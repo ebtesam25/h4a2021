@@ -1,0 +1,10 @@
+{"data":
+    {
+        "parks":[{"id":"1","name":"David T. Kennedy Park","address":"2200 S. Bayshore Drive Coconut Grove, FL 33133","distance":"1",
+        "reviews":[{"id":"1","name":"Kennedy","acc":"true","tags":["Accesible Parking", "Accesible Washroom", "Automatic Door"],
+            "detail":"This park has a beautiful fountain in the front and automatic doors. The lobby is spacious with a smooth floor. The lobby washroom area has a gender neutral accessible separate washroom, which has buttons to open the door AND a button to lock it from inside, which I have never seen before. The main washroom also has a huge accessible stall that is actually its own room with a door as well.",
+            "images":["https://ezrampz.com/wp-content/uploads/2020/05/Bathroom-Rendering-07-scaled.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ83OPN978MDWuLQpMtSXGgdZSl-1Kpy9ZxMw&usqp=CAU"]}]},
+            {"id":"1","name":"Neo Valley","address":"600 S. Bayshore Drive Coconut Grove, FL 33133","distance":"2.44","reviews":[{"id":"1","name":"Kennedy","acc":"true","tags":["Accesible Parking", "Accesible Washroom", "Automatic Door"],
+                "detail":"This park has a beautiful fountain in the front and automatic doors. The lobby is spacious with a smooth floor. The lobby washroom area has a gender neutral accessible separate washroom, which has buttons to open the door AND a button to lock it from inside, which I have never seen before. The main washroom also has a huge accessible stall that is actually its own room with a door as well.",
+                "images":["https://ezrampz.com/wp-content/uploads/2020/05/Bathroom-Rendering-07-scaled.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ83OPN978MDWuLQpMtSXGgdZSl-1Kpy9ZxMw&usqp=CAU"]}]}]
+            }}
