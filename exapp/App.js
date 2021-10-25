@@ -11,6 +11,7 @@ import Signup from './screens/signup';
 import Volunteer from './screens/volunteer';
 import Explore from './screens/explore';
 import Parks from './screens/parks';
+import ParkDetails from './screens/parkDetails';
 const Stack = createStackNavigator();
 
 function MyStack() {
@@ -44,6 +45,11 @@ function MyStack() {
        <Stack.Screen 
         name="Parks" 
         component={Parks} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="ParkDetails" 
+        component={ParkDetails} 
         options={{ headerShown: false}} 
       />
     </Stack.Navigator>

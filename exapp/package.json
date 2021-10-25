@@ -27,6 +27,7 @@
     "expo-notifications": "~0.13.3",
     "expo-permissions": "~13.0.3",
     "expo-sensors": "~11.0.3",
+    "expo-speech": "~10.0.3",
     "expo-status-bar": "~1.1.0",
     "expo-task-manager": "~10.0.3",
     "lottie-react-native": "4.0.3",

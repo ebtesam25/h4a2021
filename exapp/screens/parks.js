@@ -70,7 +70,20 @@ export default function Parks() {
             />
              </View>
 
-             <Text style={{ fontSize:20, color:'#FFFFFF', textAlign:'left', fontWeight:'bold', marginHorizontal:'2.5%'}}>Parks Nearby</Text>
+             <Text style={{ fontSize:20, color:'#FFFFFF', textAlign:'left', fontWeight:'bold', marginHorizontal:'2.5%', marginTop:'5%'}}>Parks Nearby</Text>
+
+             <TouchableOpacity onPress={()=>navigation.navigate('ParkDetails')}><View style={{backgroundColor:"#1C2A6C", paddingHorizontal:'10%', paddingVertical:'1.5%', flexDirection:'row', marginTop:'5%'}}>
+                 <View style={{backgroundColor:"#27A745", borderRadius:100, width:30, height:30, marginTop:'5%'}}><Icon name="thumbs-up" type="entypo" color="#FFF"></Icon></View>
+                 <View style={{marginTop:'2.5%', marginLeft:'2.5%'}}><Text style={{color:"#FFF", fontWeight:'bold'}}>{DATA.data.parks[0].name}</Text>
+                 <Text style={{color:"#FFF", fontSize:12}}>{DATA.data.parks[0].address}</Text>
+                 <Text style={{color:"#FFF", fontSize:10}}>{DATA.data.parks[0].distance} mi away</Text></View>
+             </View></TouchableOpacity>
+             <View style={{backgroundColor:"#1C2A6C", paddingHorizontal:'10%', paddingVertical:'1.5%', flexDirection:'row', marginTop:'1.5%'}}>
+                 <View style={{backgroundColor:"#F16051", borderRadius:100, width:30, height:30, marginTop:'5%'}}><Icon name="thumbs-down" type="entypo" color="#FFF"></Icon></View>
+                 <View style={{marginTop:'2.5%', marginLeft:'2.5%'}}><Text style={{color:"#FFF", fontWeight:'bold'}}>{DATA.data.parks[1].name}</Text>
+                 <Text style={{color:"#FFF", fontSize:12}}>{DATA.data.parks[1].address}</Text>
+                 <Text style={{color:"#FFF", fontSize:10}}>{DATA.data.parks[1].distance} mi away</Text></View>
+             </View>
 
 
 

@@ -4,6 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import Svg, { Line, Circle } from 'react-native-svg';
 import { Icon } from 'react-native-elements'
 import { useFonts } from 'expo-font';
+import * as Speech from 'expo-speech';
+
 
 
 
@@ -11,6 +13,10 @@ import { useFonts } from 'expo-font';
 
 export default function Splash() {
     const navigation = useNavigation();
+    const speak = () => {
+      const thingToSay = 'Welcome to Handicare';
+      Speech.speak(thingToSay);
+    };
   
     
    
@@ -18,7 +24,7 @@ export default function Splash() {
         <View style={styles.container}>
             <View style={{ alignSelf:'center', marginTop:'50%' }}>
               <View style={{alignSelf:'center'}}>
-                <Text style={{ fontSize:30, color:'#FFFFFF', textAlign:'center', fontWeight:'bold', marginTop:'10%'}}>Welcome to Handicare!</Text>
+                <Text style={{ fontSize:30, color:'#FFFFFF', textAlign:'center', fontWeight:'bold', marginTop:'10%'}} onPress={speak}>Welcome to Handicare!</Text>
                 <Text style={{ fontSize:15, color:'#FFFFFF', textAlign:'center', marginTop:'5%'}}>Login as</Text>
               </View>
 

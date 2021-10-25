@@ -8,10 +8,12 @@ import { Icon } from 'react-native-elements'
 import { useFonts } from 'expo-font';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import DATA from '../DATA.json';
-import * as Speech from 'expo-speech';
+import MapView from 'react-native-maps';
 
 
-export default function Explore() {
+
+
+export default function ParkDetails() {
     const navigation = useNavigation();
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -21,10 +23,7 @@ export default function Explore() {
     const notificationListener = useRef();
     const responseListener = useRef();
 
-    const speak = () => {
-        const thingToSay = 'All volunteers nearby have been notified';
-        Speech.speak(thingToSay);
-      };
+    
 
     useEffect(() => {
         registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
@@ -46,55 +45,47 @@ export default function Explore() {
     const destinations = [{"name":"Parks","bg":require('../assets/parks.png')},{"name":"Restaurants","bg": require('../assets/restaurants.png')},{"name":"Shops","bg":require('../assets/shops.png')},{"name":"Attractions","bg":require('../assets/parks.png')}]
 
 
-    const destTypes = () => {
-        return destinations.map(function(dest, i){
-          return(
-            <View key = {i} style={{marginVertical:'5%', elevation:2}}>
-                  <ImageBackground source={dest.bg} imageStyle={{resizeMode:'cover',width:245, height:75, opacity:0.3, borderRadius:20}} style={{borderColor:'#FFF', borderWidth:2, borderRadius:20, height:80}}>
-                  <TouchableOpacity onPress={()=>navigation.navigate(dest.name)}><Text style={{fontWeight:'bold', textAlign:'center', textAlignVertical:'center', color:"#FFF", marginTop:'12%'}}>{dest.name}</Text></TouchableOpacity>
-                  </ImageBackground>
-              </View>
-          );
-        });
-      }
-
-      
-    
-    
-    
    
     return (
         <View style={styles.container}>
-            <View style={{marginTop:'10%', flexDirection:'row', marginHorizontal:'10%', justifyContent:'space-evenly'}}>
-                <Icon name="location-pin" type="entypo" color="#FFF" size={35} 
-               ></Icon>
-                <View>
-                    <Text style={{color:"#FFF"}}>Location</Text>
-                    <Text style={{color:"#FFF", fontWeight:'bold'}}>Washington, D.C</Text>
-                </View>
-
-                <View style={{paddingHorizontal:'5%', paddingVertical:'4.5%', width:150, backgroundColor:"#1C2A6C", marginBottom:'2.5%', elevation:2, borderRadius:15, marginLeft:'15%'}}>
-                <TouchableOpacity onPress={speak}><Text style={{fontSize:12, color:"#FFF", textAlignVertical:'center', textAlign:'center', fontWeight:'bold'}} onPress={async () => {
-          await schedulePushNotification();
-        }}>Ask for help!</Text></TouchableOpacity>
-              </View>
-            </View>
-            <View style={{ alignSelf:'center', marginTop:'5%' }}>
-             
-
-              <View style={{alignSelf:'center',width:'80%'}}>
-                <Text style={{ fontSize:30, color:'#FFFFFF', textAlign:'center', fontWeight:'bold', marginTop:'10%'}}>Select Destination</Text>
-              </View>
-
-            <View>
-                {destTypes()}
-            </View>
+           
+            <View style={{ alignSelf:'center', backgroundColor:"#1C2A6C", width:'100%', paddingTop:'5%', paddingBottom:'5%' }}>
 
             
 
-
-              
+              <View style={{alignSelf:'center',width:'80%', flexDirection:'row', paddingTop:'10%'}}>
+                  <Icon name="chevron-left" type="entypo" color="#FFF"></Icon>
+                <Text style={{ fontSize:20, color:'#FFFFFF', textAlign:'center', fontWeight:'bold'}}>Parks</Text>
+              </View>
             </View>
+
+            <View style={{margin:'5%'}}>
+                <Image style={{width:350, height:200, resizeMode:'cover', alignSelf:'center', borderRadius:15}} source={{uri:'https://images.miamiandbeaches.com/crm/simpleview/image/upload/c_fit,w_1440,h_900/crm/miamifl/101628_4232_579d4ab4-5056-a36a-0bc9aed26b4fb4f8.jpg'}}></Image>
+             </View>
+             
+             <View style={{paddingHorizontal:'10%', paddingVertical:'1.5%'}}>
+                 <View style={{marginTop:'2.5%', marginLeft:'2.5%'}}><Text style={{color:"#FFF", fontWeight:'bold'}}>{DATA.data.parks[0].name}</Text>
+                 <Text style={{color:"#FFF", fontSize:12}}>{DATA.data.parks[0].address}</Text>
+                 <Text style={{color:"#FFF", fontSize:10}}>{DATA.data.parks[0].distance} mi away</Text></View>
+             </View>
+
+             <Text style={{ fontSize:20, color:'#FFFFFF', textAlign:'left', fontWeight:'bold', marginHorizontal:'2.5%', marginTop:'5%'}}>Reviews</Text>
+
+             
+             <View style={{backgroundColor:"#FFF", paddingHorizontal:'10%', paddingVertical:'1.5%', flexDirection:'row', marginTop:'1.5%'}}>
+                 <View style={{backgroundColor:"#CACACA", borderRadius:100, width:30, height:30, marginTop:'5%'}}><Icon name="user" type="entypo" color="#FFF"></Icon></View>
+                 <View style={{marginTop:'2.5%', marginLeft:'2.5%'}}><Text style={{color:"#000", fontWeight:'bold'}}>{DATA.data.parks[1].reviews[0].name}</Text>
+                 <Text style={{color:"#000", fontSize:12}}>{DATA.data.parks[1].reviews[0].detail}</Text>
+                 <Text style={{color:"#000", fontSize:10}}><Text style={{fontWeight:'bold'}}>Tags: </Text>{DATA.data.parks[1].reviews[0].tags[0]}, {DATA.data.parks[1].reviews[0].tags[1]}, {DATA.data.parks[1].reviews[0].tags[2]}</Text></View>
+                 
+             </View>
+
+             <TouchableOpacity><View style={{paddingHorizontal:'5%', alignSelf:'center', paddingVertical:'2.5%', width:300, backgroundColor:"#1C2A6C", marginTop:'5%', elevation:1, borderRadius:15}}>
+                <Text style={{fontSize:15, color:"#FFF", textAlignVertical:'center', textAlign:'center', fontWeight:'bold'}} onPress={()=>navigation.navigate('Signup')}>Add a review</Text>
+              </View></TouchableOpacity>
+
+
+
             <View style={{width:'100%', height:90, backgroundColor:'#FFF', bottom:0, position:'absolute'}}>
               <View style={{flexDirection:'row', justifyContent:'space-around', paddingVertical:'5%'}}>
                 <View>
@@ -121,7 +112,7 @@ async function schedulePushNotification() {
     await Notifications.scheduleNotificationAsync({
       content: {
         title: "Handicare ♿",
-        body: 'You have now entered an accessibility friendly zone!',
+        body: 'A handicapped individual is within a 0.3 mile radius. They could really use your help!',
         data: { data: 'goes here' },
       },
       trigger: { seconds: 2 },
